@@ -6,12 +6,17 @@ class Register extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			name: ''
+			first_name: '',
+			last_name: ''
 		}
 	}
 
-	onNameChange = (event) => {
-		this.setState({ name: event.target.value })
+	onFirstNameChange = (event) => {
+		this.setState({ first_name: event.target.value })
+	}
+
+	onLastNameChange = (event) => {
+		this.setState({ last_name: event.target.value })
 	}
 
 	onEmailChange = (event) => {
@@ -30,7 +35,8 @@ class Register extends Component {
 			body: JSON.stringify({
 				email: this.state.email,
 				password: this.state.password,
-				name: this.state.name
+				first_name: this.state.first_name,
+				last_name: this.state.last_name
 			})
 		})
 			//routing homepage if the user is exists
@@ -51,15 +57,25 @@ class Register extends Component {
 				    	<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 					      	<legend className="f2 fw6 ph0 mh0">Register</legend>
 					      	<div className="mt3">
-					        	<label className="db fw6 lh-copy f6" htmlFor="email-address">Name</label>
+					        	<label className="db fw6 lh-copy f6" htmlFor="email-address">First Name</label>
 					        	<input 
 					        		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					        		type="text" 
-					        		name="name"  
-					        		id="name" 
-					        		onChange={this.onNameChange}
+					        		name="first_name"  
+					        		id="first_name" 
+					        		onChange={this.onFirstNameChange}
 					        	/>
 					      	</div>
+					      		<div className="mt3">
+					      	  	<label className="db fw6 lh-copy f6" htmlFor="email-address">Last Name</label>
+					      	  	<input 
+					      	  		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					      	  		type="text" 
+					      	  		name="last_name"  
+					      	  		id="last_name" 
+					      	  		onChange={this.onLastNameChange}
+					      	  	/>
+					      		</div>					      	
 					      	<div className="mt3">
 					        	<label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 					        	<input 

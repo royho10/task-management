@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
-class AddAnotherList extends Component {
+class AddAnotherTask extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			isAddAnotherTaskOn: false,
-			term: ""
+			title: ""
 		}
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onClickAddAnotherTask = this.onClickAddAnotherTask.bind(this);
@@ -16,7 +15,7 @@ class AddAnotherList extends Component {
 
 	// handling new task input changes
 	onInputChange(event) {
-		this.setState({ term: event.target.value })
+		this.setState({ title: event.target.value })
 	}
 
 	// changing display when clicking on "Add Another Task" button
@@ -35,17 +34,13 @@ class AddAnotherList extends Component {
 	onSubmitForm(event) {
 		// Preventing the explorer to refresh every time the user press enter or clicking the submit button by default
 		event.preventDefault();
-		let newTask = {
-			taskCount: this.props.taskCount + 1,
-			id: uuidv4(),
-			title: this.state.term,
-		};
+		this.props.onSubmitNewTask(this.state.title, this.props.list_id);
 		// resets the state		
 		this.setState({ 
 			isAddAnotherTaskOn: false,
-			term: "" 
+			title: "" 
 		});
-		this.props.onSubmitNewTask(newTask,(this.props.listNumber - 1));
+		
 	}
 
 	render() {
@@ -90,4 +85,4 @@ class AddAnotherList extends Component {
 	}
 }
 
-export default AddAnotherList;
+export default AddAnotherTask;

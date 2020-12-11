@@ -1,64 +1,72 @@
 import React, { Component } from 'react';
 
-class AddAnotherList extends Component {
+class ChangeListName extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isAddAnotherListOn: false,
+			isChangeListNameOn: false,
 			title: ""
 		}
 		this.onInputChange = this.onInputChange.bind(this);
-		this.onClickAddAnotherList = this.onClickAddAnotherList.bind(this);
+		this.onClickChangeListName = this.onClickChangeListName.bind(this);
 		this.onSubmitForm = this.onSubmitForm.bind(this);
-		this.onclickX = this.onclickX.bind(this);
+		this.onClickX = this.onClickX.bind(this);
 	}
 
-	// handling new list input changes
-	onInputChange = (event) => {
+	// handling new list name input changes
+	onInputChange(event) {
 		this.setState({ title: event.target.value })
 	}
 
-	// changing display when clicking on "Add Another List" button
-	onClickAddAnotherList = () => {
-		this.setState({ isAddAnotherListOn: true })
+	// changing display when clicking on "Change List Name" button
+	onClickChangeListName() {
+		this.setState({ isChangeListNameOn: true })
 	}
 
 	// changing display when clicking on "X" button
-	onclickX = () => {
-		this.setState({ isAddAnotherListOn: false })
+	onClickX() {
+		this.setState({ 
+			isChangeListNameOn: false,
+		})
 	}
 
-	// transfering the new list to App container
-	onSubmitForm = (event) => {
+	// transfering the new list to ListsList component
+	onSubmitForm(event) {
 		// Preventing the explorer to refresh every time the user press enter or clicking the submit button by default
 		event.preventDefault();
-		this.props.onSubmitNewList(this.state.title);
-		// resets the state
+		this.props.onSubmitChangeListName(this.state.title, this.props.list_id);
+		// resets the state		
 		this.setState({ 
-			isAddAnotherListOn: false,
+			isChangeListNameOn: false,
 			title: "" 
-		});	
+		});
+		
 	}
 
 	render() {
 		return (
 				<div>
-					{ this.state.isAddAnotherListOn === false
+					{ this.state.isChangeListNameOn === false
 						?	(
 								<div className="listsList outline">
 									<div className="list outline ma3">
-										<button onClick={this.onClickAddAnotherList} type="button"className="outline ma2 ph2">+ Add another list</button>
+										<button 
+											type="button" 
+											onClick= {this.onClickChangeListName} 
+											className="f6 link dim br2 ph2 pv2 mb2 ml3 dib black bg-grey">
+											change list name
+										</button>
 									</div>
 								</div>
 							)
-						: 	(
+						:   (
 								<form onSubmit={this.onSubmitForm} className="listsList flex">
 									<div className="ma3">
 										<div className='w-100 outline flex-wrap'>
 											<input
 												className='ma1 pa2'
 												type='text'
-												placeholder='Enter list title'
+												placeholder='Enter new list title'
 												onChange={this.onInputChange }
 											/>
 										</div>
@@ -70,16 +78,16 @@ class AddAnotherList extends Component {
 											</button>
 										</div>
 										<div className='pv1 w-20 outline'>
-											<button onClick={this.onclickX}>X</button>
+											<button onClick={this.onClickX}>X</button>
 										</div>		
 									</div>
 								</form>
 							)
-  
+
 					}
 				</div>
 		);
 	}
 }
 
-export default AddAnotherList;
+export default ChangeListName;

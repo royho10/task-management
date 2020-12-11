@@ -27,11 +27,14 @@ class SignIn extends Component {
 				password: this.state.signInPassword
 			})
 		})
-			//routing homepage if the user is exists
+			//routing homepage and loading user's information if the user is exists
 			.then(response => response.json())
-			.then(user => {
-				if (user[0].id) {
-					this.props.loadUser(user[0]);
+			.then(userData => {
+				if (userData === 'wrong credentials') {
+					return console.log('wrong credentials');
+				}
+				if (userData.user.user_id) {
+					this.props.loadUser(userData);
 					this.props.onRouteChange('home');		
 				}
 			})

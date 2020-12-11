@@ -16,7 +16,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
 			<nav className="nav-bar">
 				<h1 className="logo">TaskIT</h1>
 				<ul className="main-nav">
-					<li className="link dim pointer" onClick={() => onRouteChange('signin')}>Sign In</li>
+					<li className="link dim pointer mr4" onClick={() => onRouteChange('signin')}>Sign In</li>
 					<li className="link dim pointer" onClick={() => onRouteChange('resgister')}>Register</li>
 				</ul>
 			</nav>			
