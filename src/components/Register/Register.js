@@ -39,10 +39,14 @@ class Register extends Component {
 				last_name: this.state.last_name
 			})
 		})
-			//routing homepage if the user is exists
+			// routing homepage if the user is exists
 			.then(response => response.json())
-			.then(user => {
-				if (user) {
+			.then(user => {	
+				console.log("user:", user);
+				console.log("!(!user)", !(!user));
+				// if getting user correctly as a response			
+				if (!(!user)) {
+					console.log("user", user);
 					this.props.loadUser(user);
 					this.props.onRouteChange('home');		
 				}

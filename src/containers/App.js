@@ -3,7 +3,6 @@ import './App.css';
 import Navigation from '../components/Navigation/Navigation';
 import Greeting from '../components/Greeting/Greeting';
 import ListsList from '../components/ListsList/ListsList';
-import AddAnotherList from './AddAnotherList/AddAnotherList';
 import SignIn from '../components/SignIn/SignIn';
 import Register from '../components/Register/Register';
 
@@ -37,7 +36,7 @@ class App extends Component {
 				joined: ''			
 			}
 		}
-		this.onSubmitNewList=this.onSubmitNewList.bind(this);
+		this.SubmitNewList=this.SubmitNewList.bind(this);
 		this.SubmitNewTask=this.SubmitNewTask.bind(this);
 		this.deleteTask=this.deleteTask.bind(this);
 		this.deleteList=this.deleteList.bind(this);
@@ -70,7 +69,7 @@ class App extends Component {
 	}
 
 	// adding new list
-	onSubmitNewList = (newList) => {		
+	SubmitNewList = (newList) => {		
 	// fetching the user's new list
 		fetch('http://localhost:3000/lists', {
 			method: 'post',
@@ -215,19 +214,15 @@ class App extends Component {
 	      		{ route === 'home'
 		      		? 	<div>
 		      				<Greeting name={user.first_name} />
-			      			<ListsList 
+			      			<ListsList
 				      			lists={user.lists} 
 				      			tasks={user.tasks}
 				      			SubmitNewTask={this.SubmitNewTask}
+				      			SubmitNewList={this.SubmitNewList}
 				      			SubmitNewListName={this.SubmitNewListName}
 				      			SubmitNewTaskName={this.SubmitNewTaskName} 
 				      			deleteTask={this.deleteTask}
 				      			deleteList={this.deleteList}
-				      		/>
-				      		<AddAnotherList 
-				      			loginEmail={user.email}
-				      			loadUser={this.loadUser} 
-				      			onSubmitNewList={this.onSubmitNewList}
 				      		/>
 				      	</div>
 				    :  	(

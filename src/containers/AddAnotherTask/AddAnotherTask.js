@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../components/ChangeTextCss.css';
 
 class AddAnotherTask extends Component {
 	constructor(props) {
@@ -48,31 +49,31 @@ class AddAnotherTask extends Component {
 				<div>
 					{ this.state.isAddAnotherTaskOn === false
 						?	(
-								<div className="listsList outline">
-									<div className="list outline ma3">
-										<button onClick={this.onClickAddAnotherTask} type="button"className="outline ma2 ph2">+ Add another task</button>
+								<div>
+									<div>
+										<button onClick={this.onClickAddAnotherTask} type="button"className="f7 link dim br2 pa1 ml3 dib black">+ Add another task</button>
 									</div>
 								</div>
 							)
 						:   (
-								<form onSubmit={this.onSubmitForm} className="listsList flex">
-									<div className="ma3">
-										<div className='w-100 outline flex-wrap'>
+								<form onSubmit={this.onSubmitForm} className="br2">
+									<div className="br2 container">
+										<div className='item1'>
 											<input
-												className='ma1 pa2'
+												className='f6 pa1 w-100'
 												type='text'
-												placeholder='Enter list title'
+												placeholder='Enter task title'
 												onChange={this.onInputChange }
 											/>
 										</div>
-										<div className='w-40 outline'>	
+										<div className='item2'>	
 											<button
-												className='mv1 pa2 ba bg-green'
+												className='f7 mv1 pa1 br2 dim bg-green'
 												type='submit'
 												>Submit
 											</button>
 										</div>
-										<div className='pv1 w-20 outline'>
+										<div className='f6 pa1 br2 dim bg-grey black item3'>
 											<button onClick={this.onClickX}>X</button>
 										</div>		
 									</div>
