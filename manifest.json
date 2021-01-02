@@ -10,7 +10,8 @@
     {
       "src": "favicon-16x16.png",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     },
     /*{
       "src": "favicon-24x24.png",
@@ -20,7 +21,8 @@
     {
       "src": "favicon-32x32.png",
       "type": "image/png",
-      "sizes": "32x32"
+      "sizes": "32x32",
+      "purpose": "maskable any"
     },
     /*{
       "src": "favicon-64x64.png",
@@ -30,12 +32,14 @@
     {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable any"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable any"
     },
     {
       "src": "maskable_icon-196x196.png",
