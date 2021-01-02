@@ -2,11 +2,31 @@
   "short_name": "TaskIt",
   "name": "Task Management",
   "icons": [
-    {
-      "src": "favicon.ico",
+    /*{
+      "src": "favicon-16x16.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },*/
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
     },
+    /*{
+      "src": "favicon-24x24.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },*/
+    {
+      "src": "favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    /*{
+      "src": "favicon-64x64.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },*/
     {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
