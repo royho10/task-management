@@ -10,7 +10,6 @@ const initialState = {
 	route: 'signin',
 	isSignedIn: false,
 	user: {
-		user_id: '',
 		first_name: '',
 		last_name: '',
 		email: '',
@@ -27,7 +26,6 @@ class App extends Component {
 			route: 'signin',
 			isSignedIn: false,
 			user: {
-				user_id: '',
 				first_name: '',
 				last_name: '',
 				email: '',
@@ -57,13 +55,11 @@ class App extends Component {
 	loadUser = (data) => {
 		this.setState({ 
 			user: {
-				user_id: data.user.user_id,
-				first_name: data.user.first_name,
-				last_name: data.user.last_name,
-				email: data.user.email,
-				joined: data.user.joined,
-				lists: data.user.lists,
-				tasks: data.user.tasks
+				first_name: data.first_name,
+				last_name: data.last_name,
+				email: data.email,
+				lists: data.lists,
+				tasks: data.tasks
 			},
 		});
 	}

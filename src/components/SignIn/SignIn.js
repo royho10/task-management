@@ -33,7 +33,7 @@ class SignIn extends Component {
 				if (userData === 'wrong credentials') {
 					return console.log('wrong credentials');
 				}
-				if (userData.user.user_id) {
+				if (userData.first_name) {
 					this.props.loadUser(userData);
 					this.props.onRouteChange('home');		
 				}

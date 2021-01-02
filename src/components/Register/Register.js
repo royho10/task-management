@@ -42,14 +42,8 @@ class Register extends Component {
 			// routing homepage if the user is exists
 			.then(response => response.json())
 			.then(user => {	
-				console.log("user:", user);
-				console.log("!(!user)", !(!user));
-				// if getting user correctly as a response			
-				if (!(!user)) {
-					console.log("user", user);
 					this.props.loadUser(user);
 					this.props.onRouteChange('home');		
-				}
 			})
 	}
 
