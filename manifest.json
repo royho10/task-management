@@ -45,7 +45,7 @@
       "src": "maskable_icon-196x196.png",
       "type": "image/png",
       "sizes": "196x196",
-      "purpose": "maskable"
+      "purpose": "maskable any"
     }
   ],
   "start_url": "/index.html",
