@@ -7,6 +7,11 @@
   "background_color": "#ff8181",
   "icons": [
     {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
