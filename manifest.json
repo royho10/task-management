@@ -13,22 +13,12 @@
       "type": "image/png",
       "purpose": "any"
     },
-    /*{
-      "src": "favicon-24x24.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },*/
     {
       "src": "favicon-32x32.png",
       "type": "image/png",
       "sizes": "32x32",
       "purpose": "any"
     },
-    /*{
-      "src": "favicon-64x64.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },*/
     {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
