@@ -47,7 +47,7 @@ class AddAnotherList extends Component {
 					{ this.state.isAddAnotherListOn === false
 						?	(
 								<div className="">
-										<button onClick={this.onClickAddAnotherList} type="button"className="f7 link dim br2 pa1 ml3 dib black">+ Add another list</button>
+										<button onClick={this.onClickAddAnotherList} type="button"className="f7 link dim br2 pa1 dib black">+ Add another list</button>
 								</div>
 							)
 						: 	(

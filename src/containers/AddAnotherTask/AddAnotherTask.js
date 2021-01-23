@@ -51,30 +51,28 @@ class AddAnotherTask extends Component {
 						?	(
 								<div>
 									<div>
-										<button onClick={this.onClickAddAnotherTask} type="button"className="f7 link dim br2 pa1 ml3 dib black">+ Add another task</button>
+										<button onClick={this.onClickAddAnotherTask} type="button"className="f7 link dim br2 pa1 dib black">+ Add another task</button>
 									</div>
 								</div>
 							)
 						:   (
 								<form onSubmit={this.onSubmitForm} className="br2">
-									<div className="br2 container">
-										<div className='item1'>
-											<input
-												className='f6 pa1 w-100'
-												type='text'
-												placeholder='Enter task title'
-												onChange={this.onInputChange }
-											/>
-										</div>
-										<div className='item2'>	
+									<div className="br2 flex items-center justify-between w-100">
+										<input
+											className='f6 pa1'
+											type='text'
+											placeholder='Enter task title'
+											onChange={this.onInputChange }
+										/>
+										<div className="flex">	
 											<button
 												className='f7 mv1 pa1 br2 dim bg-green'
 												type='submit'
 												>Submit
 											</button>
-										</div>
-										<div className='f6 pa1 br2 dim bg-grey black item3'>
-											<button onClick={this.onClickX}>X</button>
+											<div className='f6 br2 dim bg-grey black item3'>
+												<button onClick={this.onClickX}>X</button>
+											</div>
 										</div>		
 									</div>
 								</form>

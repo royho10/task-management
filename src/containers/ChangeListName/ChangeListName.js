@@ -53,7 +53,7 @@ class ChangeListName extends Component {
 									<button 
 										type="button" 
 										onClick= {this.onClickChangeListName} 
-										className="f7 link dim br2 pa1 ml3 dib black bg-grey">
+										className="f7 link dim br2 pa1 ml3 dib black">
 										change list name
 									</button>
 								</div>
