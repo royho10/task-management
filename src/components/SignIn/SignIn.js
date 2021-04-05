@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './SignIn.css';
 
 class SignIn extends Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ class SignIn extends Component {
 
 	onSubmitSignIn = () => {
 		// fetching the user's signin data
-		fetch('http://localhost:3000/signin', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/signin', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -30,6 +31,7 @@ class SignIn extends Component {
 			//routing homepage and loading user's information if the user is exists
 			.then(response => response.json())
 			.then(userData => {
+				console.log("userData: ", userData);
 				if (userData === 'wrong credentials') {
 					return console.log('wrong credentials');
 				}
@@ -42,25 +44,29 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-				<main className="pa4 black-80 center">
-				  	<div className="measure">
-				    	<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-					      	<legend className="f2 fw6 ph0 mh0">Sign In</legend>
-					      	<div className="mt3">
-					        	<label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+			<article className="">
+				<main className="">
+				  	<div className="">
+				    	<fieldset id="sign_up" className="">
+					      	<legend className="">Sign In</legend>
+					      	<div className="">
+					      		<div className="">
+					        		<label className="" htmlFor="email-address">Email</label>
+					        	</div>
 					        	<input 
-					        		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        		className="" 
 					        		type="email" 
 					        		name="email-address"  
 					        		id="email-address"
 					        		onChange={this.onEmailChange}
 					        	/>
 					      	</div>
-					      	<div className="mv3">
-					        	<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+					      	<div className="">
+					      		<div className="">					      	
+					        		<label className="" htmlFor="password">Password</label>
+					        	</div>	
 					        	<input 
-					        		className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        		className="" 
 					        		type="password" 
 					        		name="password"  
 					        		id="password"
@@ -71,13 +77,13 @@ class SignIn extends Component {
 					    <div className="">
 					        <input
 					        	onClick={this.onSubmitSignIn} 
-					      	    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+					      	    className="" 
 					      	    type="submit" 
 					      	    value="Sign in" 
 					        />
 					    </div>
-					    <div className="lh-copy mt3">
-					      <p onClick={() => this.props.onRouteChange('register')} className="f6 link dim black pointer db">Register</p>
+					    <div className="">
+					      <p onClick={() => this.props.onRouteChange('register')} className="">Register</p>
 					    </div>
 				  	</div>
 				</main>

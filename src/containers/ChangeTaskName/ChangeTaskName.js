@@ -53,13 +53,12 @@ class ChangeTaskName extends Component {
 									<button 
 										type="button" 
 										onClick= {this.onClickChangeTaskName} 
-										className="f7 link dim br2 pa1 ml3 dib black">
-										change task name
+										className="btn-edit f7 link dim br2 pa1 ml3 dib black">
 									</button>
 								</div>
 							)
 						:   (
-								<form onSubmit={this.onSubmitForm} className="br2">
+								<form onSubmit={this.onSubmitForm} className="br2 ba ml2">
 									<div className="br2 container">
 										<div className='item1'>
 											<input

@@ -6,7 +6,13 @@ import ChangeTaskName from '../../containers/ChangeTaskName/ChangeTaskName';
 import './ListsList.css';
 
 class ListsList extends Component {
-
+	constructor(props){
+		super();
+		this.state = {
+			isListBarExpanded: true
+		}
+		this.onClickToggleButton = this.onClickToggleButton.bind(this);
+	}
 	// transfer new list to App container
 	onSubmitNewList(newList) {
 		this.props.SubmitNewList(newList);
@@ -27,8 +33,13 @@ class ListsList extends Component {
 		this.props.SubmitNewTaskName(newTaskTitle, task_id);
 	}
 
+	onClickToggleButton() {
+		this.setState({ isListBarExpanded: !this.state.isListBarExpanded }) 
+	}
+
 	// rendering the lists
 	render() {
+		const { isListBarExpanded } = this.state;
 		return (
 			<div className="drag-container">
 				<ul className="drag-list">
@@ -38,15 +49,18 @@ class ListsList extends Component {
 							return (
 								<li key={list.list_id} className="drag-column br3">
 									<div className="list-bar br2 mb1">
-										<div className="list-title f4">
+										<div className="list-title">
 											{list.title}
 										</div>
-										<div className="flex">
-											<button type="button" onClick={() => this.props.deleteList(list.list_id)} className="f7 link dim br2 pa1 ml3 dib white bg-red">delete</button>
-											<ChangeListName
-												onSubmitChangeListName={this.onSubmitChangeListName.bind(this)} 
-												list_id={list.list_id}
-											/>
+										<div>
+											<div className="btn-toggle" /*onClick= {this.onClickToggleButton}*/></div>
+											<div className={`toggled-list-menu ${isListBarExpanded ? 'is-expanded' : ''}`}>
+												<button type="button" onClick={() => this.props.deleteList(list.list_id)} className="btn-trash f7 link dim br2 dib white bg-red"></button>
+												<ChangeListName
+													onSubmitChangeListName={this.onSubmitChangeListName.bind(this)} 
+													list_id={list.list_id}
+												/>
+											</div>
 										</div>
 									</div>
 									<ul className="drag-item-list">
@@ -60,7 +74,7 @@ class ListsList extends Component {
 																{task.title}
 															</div>
 															<div className="flex">
-																<button type="button" onClick={() => this.props.deleteTask(task.task_id)} className="f7 link dim br2 pa1 ml3 dib white bg-red">delete</button>
+																<button type="button" onClick={() => this.props.deleteTask(task.task_id)} className="btn-trash f7 link dim br2 pa1 ml3 dib white bg-red"></button>
 																<ChangeTaskName 
 																	onSubmitChangeTaskName={this.onSubmitChangeTaskName.bind(this)} 
 																	list_id={list.list_id}

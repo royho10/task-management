@@ -67,7 +67,7 @@ class App extends Component {
 	// adding new list
 	SubmitNewList = (newList) => {		
 	// fetching the user's new list
-		fetch('http://localhost:3000/lists', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/lists', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -91,7 +91,7 @@ class App extends Component {
 	// adding new task
 	SubmitNewTask = (newTask, list_id) => {
 		// fetching the user's new task
-		fetch('http://localhost:3000/tasks', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/tasks', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -114,7 +114,7 @@ class App extends Component {
 
 	// delete chosen task
 	deleteTask = (task_id) => {
-		fetch('http://localhost:3000/tasks', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/tasks', {
 			method: 'delete',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -136,7 +136,7 @@ class App extends Component {
 
 	// delete chosen list
 	deleteList = (list_id) => {
-		fetch('http://localhost:3000/lists', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/lists', {
 			method: 'delete',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -158,7 +158,7 @@ class App extends Component {
 
 	// change list name
 	SubmitNewListName = (newListTitle, list_id) => {
-		fetch('http://localhost:3000/lists', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/lists', {
 			method: 'put',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -181,7 +181,7 @@ class App extends Component {
 
 	// change task name
 	SubmitNewTaskName = (newtaskTitle, task_id) => {
-		fetch('http://localhost:3000/tasks', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/tasks', {
 			method: 'put',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Register.css';
 
 class Register extends Component {
 	constructor(props) {
@@ -29,7 +30,7 @@ class Register extends Component {
 
 	onSubmitRegister = () => {
 		// fetching the user's register data
-		fetch('http://localhost:3000/register', {
+		fetch('https://thawing-woodland-29025.herokuapp.com/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -49,13 +50,15 @@ class Register extends Component {
 
 	render() {
 		return (
-			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+			<article className="section" /*className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/>
 				<main className="pa4 black-80 center">
 				  	<div className="measure">
 				    	<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-					      	<legend className="f2 fw6 ph0 mh0">Register</legend>
+					      	<legend className="f2 fw6 ph0 mh0 center">Register</legend>
 					      	<div className="mt3">
-					        	<label className="db fw6 lh-copy f6" htmlFor="email-address">First Name</label>
+					      		<div className="center">
+					        		<label className="db fw6 lh-copy f6" htmlFor="email-address">First Name</label>
+					        	</div>
 					        	<input 
 					        		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					        		type="text" 
@@ -64,8 +67,10 @@ class Register extends Component {
 					        		onChange={this.onFirstNameChange}
 					        	/>
 					      	</div>
-					      		<div className="mt3">
-					      	  	<label className="db fw6 lh-copy f6" htmlFor="email-address">Last Name</label>
+				      		<div className="mt3">
+				      			<div className="center">
+					      	  		<label className="db fw6 lh-copy f6" htmlFor="email-address">Last Name</label>
+					      	  	</div>
 					      	  	<input 
 					      	  		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					      	  		type="text" 
@@ -73,9 +78,11 @@ class Register extends Component {
 					      	  		id="last_name" 
 					      	  		onChange={this.onLastNameChange}
 					      	  	/>
-					      		</div>					      	
+				      		</div>					      	
 					      	<div className="mt3">
-					        	<label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+					        	<div className="center">
+					        		<label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+					        	</div>
 					        	<input 
 					        		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					        		type="email" 
@@ -85,7 +92,9 @@ class Register extends Component {
 					        	/>
 					      	</div>
 					      	<div className="mv3">
-					        	<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+					      		<div className="center">
+					        		<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+					        	</div>
 					        	<input 
 					        		className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 					        		type="password" 
@@ -95,7 +104,7 @@ class Register extends Component {
 					        	/>
 					      	</div>
 				    	</fieldset>
-					    <div className="">
+					    <div className="center">
 					        <input
 					        	id="submit_button"
 					        	onClick={this.onSubmitRegister} 
