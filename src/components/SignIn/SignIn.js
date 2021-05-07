@@ -6,7 +6,8 @@ class SignIn extends Component {
 		super(props);
 		this.state = {
 			signInEmail: '',
-			signInPassword: ''
+			signInPassword: '',
+			signinError: ''
 		}
 	}
 
@@ -31,8 +32,8 @@ class SignIn extends Component {
 			//routing homepage and loading user's information if the user is exists
 			.then(response => response.json())
 			.then(userData => {
-				console.log("userData: ", userData);
 				if (userData === 'wrong credentials') {
+					this.setState({ signinError: "wrong credentials" });
 					return console.log('wrong credentials');
 				}
 				if (userData.first_name) {
@@ -73,6 +74,9 @@ class SignIn extends Component {
 					        		onChange={this.onPasswordChange}
 					        	/>
 					      	</div>
+					      	<div className="error">
+					        	{ this.state.signinError }
+					        </div>
 				    	</fieldset>
 					    <div className="">
 					        <input
