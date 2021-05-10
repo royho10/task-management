@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import './SignIn.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 class SignIn extends Component {
 	constructor(props) {
@@ -33,7 +36,7 @@ class SignIn extends Component {
 			.then(response => response.json())
 			.then(userData => {
 				if (userData === 'wrong credentials') {
-					this.setState({ signinError: "wrong credentials" });
+					this.setState({ signinError: "wrong credentials" })
 					return console.log('wrong credentials');
 				}
 				if (userData.first_name) {
@@ -45,50 +48,57 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<article className="">
+			<article className="section">
 				<main className="">
-				  	<div className="">
-				    	<fieldset id="sign_up" className="">
-					      	<legend className="">Sign In</legend>
-					      	<div className="">
+				  	<div className="signin-container ba">
+				    	<fieldset id="sign_in" className="b--transparent ph0 mh0">
+					      	<legend className="fw6 center">Sign In</legend>
+					      	<div className="mt3">
 					      		<div className="">
 					        		<label className="" htmlFor="email-address">Email</label>
 					        	</div>
-					        	<input 
-					        		className="" 
-					        		type="email" 
-					        		name="email-address"  
-					        		id="email-address"
-					        		onChange={this.onEmailChange}
-					        	/>
+					        	<div className="signin-wrap-input">
+					        		<FontAwesomeIcon icon={faEnvelope} className="icon" />
+						        	<input 
+						        		className="signin-input bn" 
+						        		type="email" 
+						        		name="email-address"
+						        		placeholder="Type your email address"  
+						        		id="email-address"
+						        		onChange={this.onEmailChange}
+						        	/>
+					        	</div>
 					      	</div>
 					      	<div className="">
-					      		<div className="">					      	
+					      		<div className="mt3">					      	
 					        		<label className="" htmlFor="password">Password</label>
-					        	</div>	
-					        	<input 
-					        		className="" 
-					        		type="password" 
-					        		name="password"  
-					        		id="password"
-					        		onChange={this.onPasswordChange}
-					        	/>
+					        	</div>
+					        	<div className="signin-wrap-input">
+					        		<FontAwesomeIcon icon={faLock} className="icon" />	
+						        	<input 
+						        		className="signin-input bn" 
+						        		type="password" 
+						        		name="password"
+						        		placeholder="Type your password"  
+						        		id="password"
+						        		onChange={this.onPasswordChange}
+						        	/>
+						        </div>	
 					      	</div>
-					      	<div className="error">
+					      	<div className="signin-error">
 					        	{ this.state.signinError }
 					        </div>
 				    	</fieldset>
-					    <div className="">
+					    <div className="center">
 					        <input
+					        	id="signin_button"
 					        	onClick={this.onSubmitSignIn} 
-					      	    className="" 
+					      	    className="b ph3 mt2 pv2 ba br2 b--black bg-transparent pointer f6 dib" 
 					      	    type="submit" 
 					      	    value="Sign in" 
 					        />
 					    </div>
-					    <div className="">
-					      <p onClick={() => this.props.onRouteChange('register')} className="">Register</p>
-					    </div>
+					    <p onClick={() => this.props.onRouteChange('register')} className="center f6 mt4 pointer dim">don't have a user? click here to register</p>
 				  	</div>
 				</main>
 			</article>	

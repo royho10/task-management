@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
 import AddAnotherTask from '../../containers/AddAnotherTask/AddAnotherTask';
 import AddAnotherList from '../../containers/AddAnotherList/AddAnotherList';
-import ChangeListName from '../../containers/ChangeListName/ChangeListName';
-import ChangeTaskName from '../../containers/ChangeTaskName/ChangeTaskName';
+import TaskCard from '../../containers/TaskCard/TaskCard';
+import ListCard from '../../containers/ListCard/ListCard';
 import './ListsList.css';
 
-class ListsList extends Component {
+class ListsList extends Component { 
 	constructor(props){
 		super();
 		this.state = {
-			isListBarExpanded: true
+			isListBarExpanded: true,
+			isChangeListNameOn: false,
+			isAddAnotherListOn: false 
 		}
-		this.onClickToggleButton = this.onClickToggleButton.bind(this);
+		//this.onClickToggleButton = this.onClickToggleButton.bind(this);
+		//this.isChangeListNameOn = this.isChangeListNameOn.bind(this);
+		this.onSubmitChangeListName = this.onSubmitChangeListName.bind(this);
+		this.onSubmitChangeTaskName = this.onSubmitChangeTaskName.bind(this);
+		this.isAddAnotherListOn = this.isAddAnotherListOn.bind(this);
+		this.onClickDeleteList = this.onClickDeleteList.bind(this);
+		this.onClickDeleteTask = this.onClickDeleteTask.bind(this);
 	}
 	// transfer new list to App container
 	onSubmitNewList(newList) {
@@ -33,59 +41,65 @@ class ListsList extends Component {
 		this.props.SubmitNewTaskName(newTaskTitle, task_id);
 	}
 
+	/*
 	onClickToggleButton() {
 		this.setState({ isListBarExpanded: !this.state.isListBarExpanded }) 
+	} */
+
+	// transfer which list_id to delete to App container
+	onClickDeleteList(list_id) {
+		this.props.deleteList(list_id);
+	}
+
+	// transfer which task_id to delete to App container
+	onClickDeleteTask(task_id) {
+		this.props.deleteTask(task_id);
+	}
+
+	// changing display when clicking on "Add another list" button
+	isAddAnotherListOn = (boolean) => {
+		this.setState({ isAddAnotherListOn: boolean })
 	}
 
 	// rendering the lists
 	render() {
-		const { isListBarExpanded } = this.state;
+		/*const { isListBarExpanded } = this.state;*/
 		return (
-			<div className="drag-container">
-				<ul className="drag-list">
+			<div className="main-container">
+				<ul className="lists-container">
 					{	
 						// rendering lists
 						this.props.lists.map((list, i) => {
 							return (
-								<li key={list.list_id} className="drag-column br3">
-									<div className="list-bar br2 mb1">
-										<div className="list-title">
-											{list.title}
-										</div>
-										<div>
-											<div className="btn-toggle" /*onClick= {this.onClickToggleButton}*/></div>
-											<div className={`toggled-list-menu ${isListBarExpanded ? 'is-expanded' : ''}`}>
-												<button type="button" onClick={() => this.props.deleteList(list.list_id)} className="btn-trash f7 link dim br2 dib white bg-red"></button>
-												<ChangeListName
-													onSubmitChangeListName={this.onSubmitChangeListName.bind(this)} 
-													list_id={list.list_id}
-												/>
-											</div>
-										</div>
-									</div>
-									<ul className="drag-item-list">
+								<li key={list.list_id} className="list-wrap">
+										{/*<div className="btn-toggle" onClick= {this.onClickToggleButton}></div>*/}
+										{/*<div className={`toggled-list-menu ${isListBarExpanded ? 'is-expanded' : ''}`}>*/}
+											<ListCard
+												onSubmitChangeListName={this.onSubmitChangeListName}
+												isChangeListNameOn={this.isChangeListNameOn} 
+												list_id={list.list_id}
+												list_title={list.title}
+												onClickDeleteList={this.onClickDeleteList}
+											/>
+										{/*<</div>*/}
+									
+									<ul className="tasks-wrap">
 										{ 	
 											// rendering tasks
 											this.props.tasks.map((task) => {
 												return (
 													task.list_id === list.list_id
-													?	<li key={task.task_id} className="task drag-item br2 mb1">
-															<div className="f6">
-																{task.title}
-															</div>
-															<div className="flex">
-																<button type="button" onClick={() => this.props.deleteTask(task.task_id)} className="btn-trash f7 link dim br2 pa1 ml3 dib white bg-red"></button>
-																<ChangeTaskName 
-																	onSubmitChangeTaskName={this.onSubmitChangeTaskName.bind(this)} 
-																	list_id={list.list_id}
-																	task_id={task.task_id}
-																/>
-															</div>
-														</li>
+													?									
+														<TaskCard 
+															onSubmitChangeTaskName={this.onSubmitChangeTaskName} 
+															list_id={list.list_id}
+															task_id={task.task_id}
+															task_title={task.title}
+															onClickDeleteTask={this.onClickDeleteTask}
+														/>
 													:	null
 												)	
-											})
-											
+											})										
 										}
 										<div id={i} className="br2">
 											{/* handlling adding another task button*/}
@@ -100,9 +114,17 @@ class ListsList extends Component {
 						})
 					}
 				</ul>
-				<AddAnotherList
-					onSubmitNewList={this.onSubmitNewList.bind(this)}
-				/>
+				{this.state.isAddAnotherListOn === false
+				?	<button 
+						onClick={() => this.isAddAnotherListOn(true)} 
+						type="button"
+						className="f7 link dim dib br2 add-list-btn">+ Add another list
+					</button>
+				:	<AddAnotherList
+						onSubmitNewList={this.onSubmitNewList.bind(this)}
+						isAddAnotherListOn={this.isAddAnotherListOn}
+					/>
+				}
 			</div>	
 		);
 	}	

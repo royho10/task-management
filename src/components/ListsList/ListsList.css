@@ -1,4 +1,33 @@
-.task {
+
+.main-container {
+	margin-top: 35px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.lists-container {
+	display: flex;
+	align-items: flex-start;
+}
+
+.list-wrap {
+	flex: 1;
+	margin-left: 10px;
+	padding: 10px;
+	width: 272px;
+	border-radius: 10px;
+	/*position: relative;
+	overflow-x: hidden;*/
+	background-color: #CBC9C8;
+}
+
+.tasks-wrap {
+	flex: 1;	
+	/*position: relative;
+	overflow-x: hidden;*/
+}
+
+.task { 
 	display: flex;
 	justify-content: space-between;
 	padding: 0px 5px;
@@ -7,41 +36,14 @@
 	background-color: #F5F0EE;
 }
 
-.drag-container {
-	margin: 20px;
-	display: flex;
+.add-list-btn {
+	width: 252px;
+	margin-left: 10px;
+	height: 40px;
 }
 
-.list-bar {
-	display: flex;
-	height: 30px;
-	padding: 0px 5px;
-	align-items: center;
-	width: 100%;
-	justify-content: space-between;
-	background-color: #A4A0FD;
-}
 
-.list-bar button {
-	text-decoration: none;
-	height: 30px;
-	display: flex;
-}
 
-.drag-column {
-	flex: 1;
-	margin: 0 10px;
-	padding: 10px;
-	width: 272px;
-	/*position: relative;
-	overflow-x: hidden;*/
-	background-color: #CBC9C8;
-}
-
-.drag-list {
-	display: flex;
-	align-items: flex-start;
-}
 
 .btn-toggle {
 	width: 30px;
@@ -62,7 +64,6 @@
 	background-size: 90%;
 	background-position: center;
 	cursor: pointer;
-	border: 2px solid
 }
 
 .btn-trash {
@@ -73,18 +74,16 @@
 	background-size: 90%;
 	background-position: center;
 	cursor: pointer;
+	margin-left: 8px;
 }
 
-.list-title {
-	height: 30px;
-	font-size: 20px;
-	white-space: nowrap;
-}
+
 
 .toggled-list-menu {
 	visibility: hidden;
 	display: flex;
 	align-items: center;
+	position: relative;
 }
 
 .is-expanded {

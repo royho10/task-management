@@ -203,7 +203,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { isSignedIn, route, user } = this.state
+		const { isSignedIn, route, user } = this.state 
 	  	return (
 	    	<div className="App">
 	      		<Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />

@@ -11,7 +11,7 @@ legend {
 	font-size: 3rem
 }
 
-.error {
+.register-error {
 	color: red;
 }
 
@@ -22,10 +22,10 @@ legend {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  padding: 50px 55px 55px 45px;
+  padding: 50px 55px 15px 45px;
 }
 
-.wrap-input {
+.register-wrap-input {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #d9d9d9;
@@ -34,7 +34,7 @@ legend {
   justify-content: center;
 }
 
-.input {
+.register-input {
   font-size: 1rem;
   color: #333333;
   line-height: 1.2;
@@ -56,28 +56,33 @@ legend {
   	font-size: 1.5rem;
   }
 
-  .input {
+  .register-input {
   	font-size: 0.9rem;
   	padding-left: 20px;
   }
 
   .register-container {
-  	padding: 40px 55px 55px 45px;
+  	padding: 40px 55px 15px 45px;
   }
 }
 
 @media screen and (max-width: 650px) {
   .register-container {
-  	padding: 30px 20px 30px 20px;
+  	width: 90%;
+  	padding: 30px 20px 15px 20px;
   	margin-top: 60px;
   }
 
-  .input {
+  .register-input {
   	font-size: 0.8rem;
   	padding-left: 15px;
   }
 
   #submit_button {
   	margin-top: 0;
+  }
+
+  .register-error {
+  	font-size: 0.8rem;
   }
 }

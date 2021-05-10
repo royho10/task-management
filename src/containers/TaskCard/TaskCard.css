@@ -1,0 +1,33 @@
+.change-task-name-form {
+	background-color: gray;
+	z-index: 10;
+	margin-bottom: 5px;
+}
+
+.task-bar {
+	display: flex;
+	padding: 2px 5px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	background-color: green;
+}
+
+.task-bar button {
+	text-decoration: none;
+	/*height: 1.7rem;*/
+}
+.task-edit-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.task-title {
+	height: auto;
+	font-size: 17px;
+	max-width: 170px;
+	word-wrap: break-word;
+}

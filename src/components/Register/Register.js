@@ -92,19 +92,19 @@ class Register extends Component {
 
 	render() {
 		return (
-			<article className="section" /*className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/>
-				<main className="pa4 black-80 center">
+			<article className="section">
+				<main className="">
 				  	<div className="register-container ba">
-				    	<fieldset id="sign_up" className="b--transparent ph0 mh0">
-					      	<legend className="fw6 ph0 mh0 center">Register</legend>
+				    	<fieldset id="register" className="b--transparent ph0 mh0">
+					      	<legend className="fw6 center">Register</legend>
 					      	<div className="mt3">
 					      		<div className="">
 					        		<label className="db fw6 lh-copy f6" htmlFor="email-address">First Name</label>
 					        	</div>
-					        	<div className="wrap-input">
+					        	<div className="register-wrap-input">
 					        		<FontAwesomeIcon icon={faUser} className="icon" />
 						        	<input 
-						        		className="input bn" 
+						        		className="register-input bn" 
 						        		type="text" 
 						        		name="first_name"
 						        		placeholder="Type your first name"  
@@ -113,17 +113,17 @@ class Register extends Component {
 						        	/>
 						        </div>	
 					      	</div>
-					      	<div className="error">
+					      	<div className="register-error">
 					      		{ this.state.first_nameError }
 					      	</div>
 				      		<div className="mt3">
 				      			<div className="">
 					      	  		<label className="db fw6 lh-copy f6" htmlFor="email-address">Last Name</label>
 					      	  	</div>
-					      	  	<div className="wrap-input">
+					      	  	<div className="register-wrap-input">
 					      	  		<FontAwesomeIcon icon={faUser} className="icon" />
 						      	  	<input 
-						      	  		className="input bn" 
+						      	  		className="register-input bn" 
 						      	  		type="text" 
 						      	  		name="last_name"
 						      	  		placeholder="Type your last name"  
@@ -132,17 +132,17 @@ class Register extends Component {
 						      	  	/>
 						      	 </div> 	
 				      		</div>	
-				      		<div className="error">
+				      		<div className="register-error">
 				      		  	{ this.state.last_nameError }
 				      		 </div>				      	
 					      	<div className="mt3">
 					        	<div className="">
 					        		<label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 					        	</div>
-					        	<div className="wrap-input">
+					        	<div className="register-wrap-input">
 					      	  		<FontAwesomeIcon icon={faEnvelope} className="icon" />
 						        	<input 
-						        		className="input bn" 
+						        		className="register-input bn" 
 						        		type="email" 
 						        		name="email-address"
 						        		placeholder="Type your email address"  
@@ -151,17 +151,17 @@ class Register extends Component {
 						        	/>
 						        </div>	
 					      	</div>
-					      	<div className="error">
+					      	<div className="register-error">
 					      		{ this.state.emailError }
 					      	</div>
-					      	<div className="mv3">
+					      	<div className="mt3">
 					      		<div className="">
 					        		<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
 					        	</div>
-					        	<div className="wrap-input">
+					        	<div className="register-wrap-input">
 					      	  		<FontAwesomeIcon icon={faLock} className="icon" />
 						        	<input 
-						        		className="input bn" 
+						        		className="register-input bn" 
 						        		type="password" 
 						        		name="password"
 						        		placeholder="Type your password"  
@@ -170,7 +170,7 @@ class Register extends Component {
 						        	/>
 						        </div>	
 					      	</div>
-					      	<div className="error">
+					      	<div className="register-error">
 					      		{ this.state.passwordError }
 					      	</div>					      	
 				    	</fieldset>
@@ -183,6 +183,7 @@ class Register extends Component {
 					      	    value="Register" 
 					        />
 					    </div>
+					    <p onClick={() => this.props.onRouteChange('signin')} className="center f6 mt4 pointer dim">already got a user? click here to signin</p>
 				  	</div>
 				</main>
 			</article>	
