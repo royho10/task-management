@@ -3,6 +3,7 @@
 	width: 254px;
 	border: solid 2px;
 	row-gap: 3px;
+	background-color: #E6EAF1;
 	grid-template-columns: 84px 84px 84px;
 	grid-template-rows: auto;
 	grid-template-areas: 

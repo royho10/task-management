@@ -8,7 +8,7 @@ main {
 }
 
 legend {
-	font-size: 3rem
+	font-size: 3rem;
 }
 
 .register-error {
@@ -47,7 +47,8 @@ legend {
 }
 
 #submit_button:hover {
-  background: rgb(255, 92, 92);
+  color: white;
+  background: #55647F;
 }
 
 /* Media Query: Tablet or Smaller */

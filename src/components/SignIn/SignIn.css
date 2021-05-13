@@ -36,7 +36,8 @@
 }
 
 #signin_button:hover {
-  background: rgb(255, 92, 92);
+  background: #55647F;
+  color: white;
 }
 
 /* Media Query: Tablet or Smaller */
@@ -55,7 +56,6 @@
   .signin-container {
   	width: 90%;
   	padding: 30px 20px 15px 20px;
-  	margin-top: -70px;
   }
 
   .signin-input {
