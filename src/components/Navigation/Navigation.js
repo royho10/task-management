@@ -4,12 +4,14 @@ import './Navigation.css';
 const Navigation = ({ onRouteChange, isSignedIn }) => {
 	if (isSignedIn) {
 		return (
-			<nav className="nav-bar">
-				<h1 className="logo">TaskIT</h1>
-				<ul className="main-nav">
-					<li className="link dim pointer" onClick={() => onRouteChange('signin')}>Log Out</li>
-				</ul>
-			</nav>
+			<div className="header">
+				<nav className="nav-bar">
+					<h1 className="logo">TaskIT</h1>
+					<ul className="main-nav">
+						<li className="link dim pointer" onClick={() => onRouteChange('signin')}>Log Out</li>
+					</ul>
+				</nav>
+			</div>
 		)
 	} else {
 		return (

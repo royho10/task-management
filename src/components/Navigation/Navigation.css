@@ -15,12 +15,18 @@ ul {
 	list-style: none;
 }
 
+.header {
+	display: block;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	/*position: fixed;
+	top: 0;*/
+}
+
 .nav-bar {
 	z-index: 10;
-	position: fixed;
-	top: 0;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -34,7 +40,7 @@ ul {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;	
-}
+} 
 
 .logo {
 	margin: 0;
@@ -56,5 +62,14 @@ ul {
 	margin-top: 5px;
 	text-transform: uppercase;	
 }
+
+/* Media Query: Tablet or Smaller */
+
+@media screen and (max-width: 650px) {
+	.nav-bar {
+		
+	}
+}
+
 
 

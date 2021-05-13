@@ -1,0 +1,8 @@
+.greeting {
+	margin-top: 10px;
+	height: auto;
+	display: block;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+}

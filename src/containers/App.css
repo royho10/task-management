@@ -11,5 +11,38 @@
   justify-content: center;
 }
 
+.main-content {
+	display: flex;
+	flex-direction: column;
+	/*display: flex;
+	flex-flow: column;*/
+	flex-grow:1;
+	/*flex-direction: column;*/
+	overflow-y: auto;
+	position: relative;
+}
+
+.board-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	/*margin-right: 0;
+	position: absolute;
+	right: 0;
+	left: 0;*/
+}
+
+.App {
+	overflow: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;	
+}
+
+#footer {
+	height: 0px;
+	display: block;
+}
 
 

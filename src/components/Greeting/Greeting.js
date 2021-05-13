@@ -1,9 +1,10 @@
 import React from 'react';
+import './Greeting.css';
 
 const Greeting = ({ name }) => {
 	return (
-		<div className='center f3 mv2'>
-			{`Hello ${name}, nice to have you back :)`}
+		<div className='greeting center f3'>
+			{`Hello ${name}, keep rocking :)`}
 		</div>
 	);
 }

@@ -10,14 +10,12 @@ class ListsList extends Component {
 		super();
 		this.state = {
 			isListBarExpanded: true,
-			isChangeListNameOn: false,
-			isAddAnotherListOn: false 
+			isChangeListNameOn: false 
 		}
 		//this.onClickToggleButton = this.onClickToggleButton.bind(this);
 		//this.isChangeListNameOn = this.isChangeListNameOn.bind(this);
 		this.onSubmitChangeListName = this.onSubmitChangeListName.bind(this);
 		this.onSubmitChangeTaskName = this.onSubmitChangeTaskName.bind(this);
-		this.isAddAnotherListOn = this.isAddAnotherListOn.bind(this);
 		this.onClickDeleteList = this.onClickDeleteList.bind(this);
 		this.onClickDeleteTask = this.onClickDeleteTask.bind(this);
 	}
@@ -56,22 +54,17 @@ class ListsList extends Component {
 		this.props.deleteTask(task_id);
 	}
 
-	// changing display when clicking on "Add another list" button
-	isAddAnotherListOn = (boolean) => {
-		this.setState({ isAddAnotherListOn: boolean })
-	}
-
 	// rendering the lists
 	render() {
 		/*const { isListBarExpanded } = this.state;*/
 		return (
 			<div className="main-container">
-				<ul className="lists-container">
+				<div className="lists-container">
 					{	
 						// rendering lists
 						this.props.lists.map((list, i) => {
 							return (
-								<li key={list.list_id} className="list-wrap">
+								<div className="list-wrap">
 										{/*<div className="btn-toggle" onClick= {this.onClickToggleButton}></div>*/}
 										{/*<div className={`toggled-list-menu ${isListBarExpanded ? 'is-expanded' : ''}`}>*/}
 											<ListCard
@@ -83,7 +76,7 @@ class ListsList extends Component {
 											/>
 										{/*<</div>*/}
 									
-									<ul className="tasks-wrap">
+									<div className="tasks-wrap">
 										{ 	
 											// rendering tasks
 											this.props.tasks.map((task) => {
@@ -108,23 +101,15 @@ class ListsList extends Component {
 												list_id={list.list_id}
 											/>
 										</div>
-									</ul>
-								</li>
+									</div>
+								</div>
 							);
 						})
 					}
-				</ul>
-				{this.state.isAddAnotherListOn === false
-				?	<button 
-						onClick={() => this.isAddAnotherListOn(true)} 
-						type="button"
-						className="f7 link dim dib br2 add-list-btn">+ Add another list
-					</button>
-				:	<AddAnotherList
-						onSubmitNewList={this.onSubmitNewList.bind(this)}
-						isAddAnotherListOn={this.isAddAnotherListOn}
-					/>
-				}
+				<AddAnotherList
+					onSubmitNewList={this.onSubmitNewList.bind(this)}
+				/>			
+				</div>
 			</div>	
 		);
 	}	

@@ -38,3 +38,23 @@
 	padding: 5px 8px;
 }
 
+.btn-edit {
+	width: 24px;
+	height: 24px;
+	background-image: url("edit_26px.png");
+	background-repeat: no-repeat;
+	background-size: 90%;
+	background-position: center;
+	cursor: pointer;
+}
+
+.btn-trash {
+	width: 24px;
+	height: 24px;
+	background-image: url("trash_24.png");
+	background-repeat: no-repeat;
+	background-size: 90%;
+	background-position: center;
+	cursor: pointer;
+	margin-left: 8px;
+}

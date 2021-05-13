@@ -208,18 +208,20 @@ class App extends Component {
 	    	<div className="App">
 	      		<Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
 	      		{ route === 'home'
-		      		? 	<div>
-		      				<Greeting name={user.first_name} />
-			      			<ListsList
-				      			lists={user.lists} 
-				      			tasks={user.tasks}
-				      			SubmitNewTask={this.SubmitNewTask}
-				      			SubmitNewList={this.SubmitNewList}
-				      			SubmitNewListName={this.SubmitNewListName}
-				      			SubmitNewTaskName={this.SubmitNewTaskName} 
-				      			deleteTask={this.deleteTask}
-				      			deleteList={this.deleteList}
-				      		/>
+		      		? 	<div className="main-content">
+				      		<div className="board-wrapper">
+			      				<Greeting name={user.first_name} />
+				      			<ListsList
+					      			lists={user.lists} 
+					      			tasks={user.tasks}
+					      			SubmitNewTask={this.SubmitNewTask}
+					      			SubmitNewList={this.SubmitNewList}
+					      			SubmitNewListName={this.SubmitNewListName}
+					      			SubmitNewTaskName={this.SubmitNewTaskName} 
+					      			deleteTask={this.deleteTask}
+					      			deleteList={this.deleteList}
+					      		/>
+				      		</div>
 				      	</div>
 				    :  	(
 				    		route === 'signin'
@@ -227,6 +229,7 @@ class App extends Component {
 				    		:   <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
 				    	)
 	      		}
+	      		<div id="footer"></div>
 	    	</div>
 	  	);
 	}
