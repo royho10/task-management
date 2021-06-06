@@ -19,6 +19,7 @@ ul {
 	display: block;
 	overflow-x: hidden;
 	overflow-y: hidden;
+
 }
 
 .nav-bar {
@@ -38,7 +39,7 @@ ul {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	position: fixed;	
+	position: fixed;
 } 
 
 .logo {

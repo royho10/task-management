@@ -5,7 +5,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import './Register.css';
 
-class Register extends Component {
+class Register extends Component { 
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,7 +16,8 @@ class Register extends Component {
 			first_name: '',
 			first_nameError: '',
 			last_name: '',
-			last_nameError: ''
+			last_nameError: '',
+			register_error: ''
 		}
 	}
 
@@ -83,9 +84,14 @@ class Register extends Component {
 			})
 				// routing homepage if the user is exists
 				.then(response => response.json())
-				.then(user => {	
+				.then(user => {
+					if (user === 'user already exist') {
+						this.setState({ register_error: "user already exist" })
+					}
+					if (user.first_name) {	
 						this.props.loadUser(user);
-						this.props.onRouteChange('home');		
+						this.props.onRouteChange('home');
+					}		
 				})
 		}
 	}
@@ -182,6 +188,9 @@ class Register extends Component {
 					      	    type="submit" 
 					      	    value="Register" 
 					        />
+					    </div>
+					    <div className="register-error">
+					      	{ this.state.register_error }
 					    </div>
 					    <p onClick={() => this.props.onRouteChange('signin')} className="center f6 mt4 pointer dim">already got a user? click here to signin</p>
 				  	</div>
