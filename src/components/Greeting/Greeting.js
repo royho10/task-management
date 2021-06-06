@@ -4,7 +4,7 @@ import './Greeting.css';
 const Greeting = ({ name }) => {
 	return (
 		<div className='greeting center f3'>
-			{`Hello ${name}, keep rocking :)`}
+			{`Hello ${name}`}
 		</div>
 	);
 }
