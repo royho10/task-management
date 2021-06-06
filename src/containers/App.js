@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from '../components/Navigation/Navigation';
 import Greeting from '../components/Greeting/Greeting';
-import ListsList from '../components/ListsList/ListsList';
-import SignIn from '../components/SignIn/SignIn';
-import Register from '../components/Register/Register';
+import ListsList from '../containers/ListsList/ListsList';
+import SignIn from '../containers/SignIn/SignIn';
+import Register from '../containers/Register/Register';
 
 const initialState = {
 	route: 'signin',
